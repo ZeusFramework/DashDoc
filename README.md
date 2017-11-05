@@ -1,11 +1,38 @@
-DashDoc provides integration of [Dash][1] into Sublime Text.
+DashDoc provides integration of [Dash][1] (on OS X), [Zeal][7] (on Linux) and [Zeal][7] or [Velocity][8] (on Windows) into Sublime Text.
+
+## If the package is not available in the install list
+
+You need to be on OS X, Windows or Linux to use DashDoc. You might have installed it already. If nothing helps, please check package control [troubleshooting](https://packagecontrol.io/docs/troubleshooting) page or fill a bug against [package control](https://packagecontrol.io/docs/issues).
 
 ## Usage
 
 You can look up the word under the cursor or selected text in Dash using `ctrl+h`.
 
 ## Installation
-Use [Sublime Package Control][6].
+
+1. Install the [Sublime Package Control][6] package.
+2. Use Package Control to install this package (DashDoc)
+
+### Hotkey configuration
+
+DashDoc no longer comes with a default hotkey.
+
+To set up the hotkey for dash open the Preferences > Key Bindings from the menu
+and add a new entry that looks like this:
+
+    { "keys": ["YOUR HOTKEY"], "command": "dash_doc"}
+
+for the default mode
+
+    { "keys": ["YOUR HOTKEY"], "command": "dash_doc",
+                               "args": { "flip_syntax_sensitive": true } }
+
+for the flipped case sensitive mode.
+
+### Dependencies
+
+[xdg-utils][9] on Linux.
+
 
 ## Options
 
@@ -42,47 +69,53 @@ Mappings that are not overridden this way default to what is found in the `DashD
       "Clojure"               : ["clojure"],
       "CoffeeScript"          : ["coffee"],
       "ColdFusion"            : ["cf"],
-      "CSS"                   : ["css", "bootstrap", "foundation", "less", "cordova", "phonegap"],
+      "CSS"                   : ["css", "bootstrap", "foundation", "less", "awesome", "cordova", "phonegap"],
+      "Dart"                  : ["dartlang", "polymerdart", "angulardart"],
       "Elixir"                : ["elixir"],
       "Erlang"                : ["erlang"],
-      "Go"                    : ["go"],
-      "GoSublime"             : ["go"],
-      "GoSublime-Go"          : ["go"],
+      "Go"                    : ["go", "godoc"],
+      "GoSublime"             : ["go", "godoc"],
+      "GoSublime-Go"          : ["go", "godoc"],
       "Groovy"                : ["groovy"],
       "Haskell"               : ["haskell"],
       "Haskell-SublimeHaskell": ["haskell"],
       "Literate Haskell"      : ["haskell"],
-      "HTML"                  : ["html", "svg", "css", "bootstrap", "foundation", "javascript", "jquery", "jqueryui", "jquerym", "angularjs", "backbone", "marionette", "meteor", "moo", "prototype", "ember", "lodash", "underscore", "sencha", "extjs", "knockout", "zepto", "cordova", "phonegap", "yui"],
+      "HTML"                  : ["html", "svg", "css", "bootstrap", "foundation", "awesome", "statamic", "javascript", "jquery", "jqueryui", "jquerym", "angularjs", "backbone", "marionette", "meteor", "moo", "prototype", "ember", "lodash", "underscore", "sencha", "extjs", "knockout", "zepto", "cordova", "phonegap", "yui"],
       "Jade"                  : ["jade"],
-      "Java"                  : ["java", "javafx", "grails", "groovy", "playjava", "spring", "cvj", "processing"],
-      "JavaScript"            : ["javascript", "jquery", "jqueryui", "jquerym", "backbone", "marionette", "meteor", "sproutcore", "moo", "prototype", "bootstrap", "foundation", "lodash", "underscore", "ember", "sencha", "extjs", "knockout", "zepto", "yui", "d3", "svg", "dojo", "coffee", "nodejs", "express", "chai", "html", "css", "cordova", "phonegap", "unity3d"],
+      "Java"                  : ["java", "javafx", "grails", "groovy", "playjava", "spring", "cvj", "processing", "javadoc"],
+      "JavaScript"            : ["javascript", "jquery", "jqueryui", "jquerym", "angularjs", "backbone", "marionette", "meteor", "sproutcore", "moo", "prototype", "bootstrap", "foundation", "lodash", "underscore", "ember", "sencha", "extjs", "knockout", "zepto", "yui", "d3", "svg", "dojo", "coffee", "nodejs", "express", "mongoose", "moment", "require", "awsjs", "jasmine", "sinon", "grunt", "chai", "html", "css", "cordova", "phonegap", "unity3d", "titanium"],
+      "Kotlin"                : ["kotlin"],
       "Less"                  : ["less"],
       "Lisp"                  : ["lisp"],
       "Lua"                   : ["lua", "corona"],
       "Markdown"              : ["markdown"],
       "MultiMarkdown"         : ["markdown"],
-      "Objective-C"           : ["iphoneos", "macosx", "appledoc", "cocos2d", "cocos3d", "kobold2d", "sparrow", "c", "manpages"],
-      "Objective-C++"         : ["cpp", "iphoneos", "macosx", "appledoc", "cocos2d", "cocos2dx", "cocos3d", "kobold2d", "sparrow", "c", "manpages"],
+      "Objective-C"           : ["iphoneos", "macosx", "appledoc", "cocos2d", "cocos3d", "kobold2d", "sparrow", "cocoapods", "c", "manpages"],
+      "Objective-C++"         : ["cpp", "iphoneos", "macosx", "appledoc", "cocos2d", "cocos2dx", "cocos3d", "kobold2d", "sparrow", "cocoapods", "c", "manpages"],
       "Objective-J"           : ["cappucino"],
       "OCaml"                 : ["ocaml"],
       "Perl"                  : ["perl", "manpages"],
-      "PHP"                   : ["php", "wordpress", "drupal", "zend", "laravel", "yii", "joomla", "ee", "codeigniter", "cakephp", "symfony", "typo3", "twig", "smarty", "html", "mysql", "sqlite", "mongodb", "psql", "redis"],
+      "PHP"                   : ["php", "wordpress", "drupal", "zend", "laravel", "yii", "joomla", "ee", "codeigniter", "cakephp", "phpunit", "symfony", "typo3", "twig", "smarty", "phpp", "html", "statamic", "mysql", "sqlite", "mongodb", "psql", "redis"],
       "Processing"            : ["processing"],
       "Puppet"                : ["puppet"],
-      "Python"                : ["python", "django", "twisted", "sphinx", "flask", "cvp"],
+      "Python"                : ["python", "django", "twisted", "sphinx", "flask", "tornado", "sqlalchemy", "numpy", "scipy", "salt", "cvp"],
       "R"                     : ["r"],
       "Ruby"                  : ["ruby", "rubygems", "rails"],
       "Ruby on Rails"         : ["ruby", "rubygems", "rails"],
-      "(HTML) Rails"          : ["ruby", "rubygems", "rails", "html", "svg", "css", "bootstrap", "foundation", "javascript", "jquery", "jqueryui", "jquerym", "angularjs", "backbone", "marionette", "meteor", "moo", "prototype", "ember", "lodash", "underscore", "sencha", "extjs", "knockout", "zepto", "cordova", "phonegap", "yui"],
-      "(JavaScript) Rails"    : ["ruby", "rubygems", "rails", "javascript", "jquery", "jqueryui", "jquerym", "backbone", "marionette", "meteor", "sproutcore", "moo", "prototype", "bootstrap", "foundation", "lodash", "underscore", "ember", "sencha", "extjs", "knockout", "zepto", "yui", "d3", "svg", "dojo", "coffee", "nodejs", "express", "chai", "html", "css", "cordova", "phonegap", "unity3d"],
+      "(HTML) Rails"          : ["ruby", "rubygems", "rails", "html", "svg", "css", "bootstrap", "foundation", "awesome", "statamic", "javascript", "jquery", "jqueryui", "jquerym", "angularjs", "backbone", "marionette", "meteor", "moo", "prototype", "ember", "lodash", "underscore", "sencha", "extjs", "knockout", "zepto", "cordova", "phonegap", "yui"],
+      "(JavaScript) Rails"    : ["ruby", "rubygems", "rails", "javascript", "jquery", "jqueryui", "jquerym", "angularjs", "backbone", "marionette", "meteor", "sproutcore", "moo", "prototype", "bootstrap", "foundation", "lodash", "underscore", "ember", "sencha", "extjs", "knockout", "zepto", "yui", "d3", "svg", "dojo", "coffee", "nodejs", "express", "mongoose", "moment", "require", "awsjs", "jasmine", "sinon", "grunt", "chai", "html", "css", "cordova", "phonegap", "unity3d"],
       "(SQL) Rails"           : ["ruby", "rubygems", "rails"],
       "Ruby Haml"             : ["haml"],
+      "Rust"                  : ["rust"],
       "Sass"                  : ["sass", "compass", "bourbon", "neat", "css"],
-      "Scala"                 : ["scala", "akka", "playscala"],
+      "Scala"                 : ["scala", "akka", "playscala", "scaladoc"],
       "Shell-Unix-Generic"    : ["bash", "manpages"],
       "SQL"                   : ["mysql", "sqlite", "psql"],
       "TCL"                   : ["tcl"],
-      "YAML"                  : ["yaml"]      
+      "TSS"                   : ["titanium"],
+      "TypeScript"            : ["typescript", "javascript", "react", "nodejs", "jquery", "jqueryui", "jquerym", "angularjs", "backbone", "marionette", "meteor", "sproutcore", "moo", "prototype", "bootstrap", "foundation", "lodash", "underscore", "ember", "sencha", "extjs", "knockout", "zepto", "yui", "d3", "svg", "dojo", "express", "mongoose", "moment", "require", "awsjs", "jasmine", "sinon", "grunt", "chai", "html", "css", "cordova", "phonegap", "unity3d", "titanium"],
+      "YAML"                  : ["yaml"],
+      "XML"                   : ["xml", "titanium"]
     }
 
 More information on [Dash docsets][2].
@@ -97,5 +130,7 @@ More information on [Dash docsets][2].
 [3]: http://kapeli.com/dash_plugins
 [4]: http://farcaller.net/
 [5]: http://db.inf.uni-tuebingen.de/team/grust/
-[6]: http://wbond.net/sublime_packages/package_control
-
+[6]: https://packagecontrol.io/installation
+[7]: https://zealdocs.org/
+[8]: https://velocity.silverlakesoftware.com/
+[9]: https://www.freedesktop.org/wiki/Software/xdg-utils/
